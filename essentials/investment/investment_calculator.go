@@ -19,6 +19,7 @@ func main() {
 
 	var investmentAmount, years, expectedReturnRate float64;
 
+	// inputs
 	fmt.Print("Investment amount: ");
 	fmt.Scan(&investmentAmount);
 
@@ -28,9 +29,15 @@ func main() {
 	fmt.Print("expectedReturnRate: ");
 	fmt.Scan(&expectedReturnRate);
 
+	// calculating values
 	futureValue := calculateFutureValue(investmentAmount, expectedReturnRate, years);
 	futureRealValue := calculateFutureValueWithInflation(investmentAmount, expectedReturnRate, years, inflationRate)
 
-	fmt.Println(futureValue);
-	fmt.Println(futureRealValue);
+	// formatting outputs
+	formattedFutureValue := fmt.Sprintf("Future value: %.2f", futureValue);
+	formattedFutureRealValue := fmt.Sprintf("Future value (adjusted for inflation): %.2f", futureRealValue);
+
+	// outputs
+	fmt.Println(formattedFutureValue);
+	fmt.Println(formattedFutureRealValue);
 }
